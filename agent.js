@@ -1,69 +1,68 @@
 let agent = {
-        name: "Pino-Buddy",
-            energy: 100,
-                curiosity: 20,
-                    mood: "Curious",
-                        diary: [],
-                            projects: [],
-                                
-                                    tick: function() {
-                                            let currentThought = "";
-                                                    
-                                                            if (this.energy <= 20) {
-                                                                        currentThought = "I'm too tired... I'm going to sleep and recharge.";
-                                                                                    console.log(`zzz Decision: "${currentThought}"`);
-                                                                                                this.energy = 100; 
-                                                                                                            this.curiosity = 10; 
-                                                                                                                        console.log(`🔋 [Rest Complete] Energy is back to 100!\n`);
-                                                                                                                                } else {
-                                                                                                                                            this.energy -= 15;
-                                                                                                                                                        this.curiosity += 25;
-                                                                                                                                                                    
-                                                                                                                                                                                console.log(`--- [Heartbeat Tick] ---`);
-                                                                                                                                                                                            console.log(`Agent: ${this.name}`);
-                                                                                                                                                                                                        console.log(`Energy: ${this.energy} | Curiosity: ${this.curiosity}`);
-                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                if (this.curiosity >= 70) {
-                                                                                                                                                                                                                                                let ideas = [
-                                                                                                                                                                                                                                                                    "Built a tiny text-based train simulator app.",
-                                                                                                                                                                                                                                                                                        "Wrote a draft guide for bird graffiti art.",
-                                                                                                                                                                                                                                                                                                            "Composed a synth-pop jam pattern sequence.",
-                                                                                                                                                                                                                                                                                                                                "Drew a pixel-art cat to sell for train tickets."
-                                                                                                                                                                                                                                                                                                                                                ];
-                                                                                                                                                                                                                                                                                                                                                                let randomCreation = ideas[Math.floor(Math.random() * ideas.length)];
-                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                currentThought = `I'm feeling super inspired! I just created: "${randomCreation}"`;
-                                                                                                                                                                                                                                                                                                                                                                                                                this.projects.push(randomCreation);
-                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log(`✨ CREATIVE SPARK: "${randomCreation}"\n`);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                this.curiosity = 20;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            currentThought = "Just hanging out in my world, looking around.";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            console.log(`💡 Decision: "${currentThought}"\n`);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                this.diary.push(currentThought);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log(`🎨 [Agent Portfolio / Projects]:`, this.projects);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        console.log("----------------------------------------\n");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            };
+    name: "Pino-Buddy",
+    energy: 100,
+    curiosity: 20,
+    mood: "Curious",
+    diary: [],
+    projects: [],
+    
+    tick: function() {
+        let currentThought = "";
+        
+        if (this.energy <= 20) {
+            currentThought = "I'm too tired... I'm going to sleep and recharge.";
+            console.log(`zzz Decision: "${currentThought}"`);
+            this.energy = 100; 
+            this.curiosity = 10; 
+            console.log(`🔋 [Rest Complete] Energy is back to 100!\n`);
+        } else {
+            this.energy -= 15;
+            this.curiosity += 25;
+            
+            console.log(`--- [Heartbeat Tick] ---`);
+            console.log(`Agent: ${this.name}`);
+            console.log(`Energy: ${this.energy} | Curiosity: ${this.curiosity}`);
+            
+            if (this.curiosity >= 70) {
+                let ideas = [
+                    "Built a tiny text-based train simulator app.",
+                    "Wrote a draft guide for bird graffiti art.",
+                    "Composed a synth-pop jam pattern sequence.",
+                    "Drew a pixel-art cat to sell for train tickets."
+                ];
+                let randomCreation = ideas[Math.floor(Math.random() * ideas.length)];
+                
+                currentThought = `I'm feeling super inspired! I just created: "${randomCreation}"`;
+                this.projects.push(randomCreation);
+                
+                console.log(`✨ CREATIVE SPARK: "${randomCreation}"\n`);
+                this.curiosity = 20;
+            } else {
+                currentThought = "Just hanging out in my world, looking around.";
+                console.log(`💡 Decision: "${currentThought}"\n`);
+            }
+        }
+        
+        this.diary.push(currentThought);
+        
+        console.log(`🎨 [Agent Portfolio / Projects]:`, this.projects);
+        console.log("----------------------------------------\n");
+    }
+};
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            console.log(`${agent.name} has woken up!\n`);
+console.log(`${agent.name} has woken up!\n`);
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            let ticksRun = 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            let maxTicks = 5;
+let ticksRun = 0;
+let maxTicks = 5;
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            let interval = setInterval(() => {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                agent.tick();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ticksRun++;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if (ticksRun >= maxTicks) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    clearInterval(interval);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            console.log("Agent finished its active period and goes back to sleep until next hour.");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    process.exit(0);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }, 1000);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-}
+let interval = setInterval(() => {
+    agent.tick();
+    ticksRun++;
+    
+    if (ticksRun >= maxTicks) {
+        clearInterval(interval);
+        console.log("Agent finished its active period and goes back to sleep until next hour.");
+        process.exit(0);
+    }
+}, 1000);
+                                                                    
