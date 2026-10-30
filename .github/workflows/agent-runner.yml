@@ -6,7 +6,7 @@ on:
         workflow_dispatch:
 
         jobs:
-          run-agent:
+          run:
               runs-on: ubuntu-latest
                   steps:
                         - uses: actions/checkout@v4
@@ -14,5 +14,4 @@ on:
                                       with:
                                                 node-version: '20'
                                                       - run: node agent.js
-                                      
-                                                                                  
+                                                      
