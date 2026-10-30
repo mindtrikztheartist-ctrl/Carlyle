@@ -1,0 +1,23 @@
+name: Run Autonomous Agent
+
+on:
+  schedule:
+      # Runs automatically every hour
+          - cron: '0 * * * *'
+            workflow_dispatch: # Allows you to trigger it manually anytime!
+
+            jobs:
+              run-agent:
+                  runs-on: ubuntu-latest
+                      steps:
+                            - name: Check out repo code
+                                    uses: actions/checkout@v4
+
+                                          - name: Set up Node.js
+                                                  uses: actions/setup-node@v4
+                                                          with:
+                                                                    node-version: '20'
+
+                                                                          - name: Run Agent Script
+                                                                                  run: node agent.js
+                                                                                  
